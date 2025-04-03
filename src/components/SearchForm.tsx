@@ -5,7 +5,7 @@ interface SearchFormProps {
 }
 
 const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
-  // Using a single state object for all form fields
+  // Using a single state object for all form fields.
   const [formData, setFormData] = useState({
     location: "",
     businessId: "",
@@ -13,7 +13,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     registrationDateEnd: "",
   });
 
-  // Generic handleChange for any form input
+  // Generic handleChange for any form input.
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -22,16 +22,27 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     }));
   };
 
-  // Handle form submission
+  // Handle form submission.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Remove empty fields from search parameters
+    // Remove empty fields from search parameters.
     const filteredParams = Object.fromEntries(
       Object.entries(formData).filter(([_, value]) => value !== "")
     );
 
     onSearch(filteredParams);
+  };
+
+  // Handle clearing the form.
+  const handleClear = () => {
+    setFormData({
+      location: "",
+      businessId: "",
+      registrationDateStart: "",
+      registrationDateEnd: "",
+    });
+    onSearch({}); // Reset the search results when the form is cleared.
   };
 
   return (
@@ -41,30 +52,33 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
         name="location"
         value={formData.location}
         onChange={handleChange}
-        placeholder="Search for a location"
+        placeholder="Location"
       />
       <input
         type="text"
         name="businessId"
         value={formData.businessId}
         onChange={handleChange}
-        placeholder="Search for a businessID"
+        placeholder="Business ID"
       />
       <input
         type="text"
         name="registrationDateStart"
         value={formData.registrationDateStart}
         onChange={handleChange}
-        placeholder="Search for a registrationStartDate"
+        placeholder="Registration starting (YYYY-MM-DD)"
       />
       <input
         type="text"
         name="registrationDateEnd"
         value={formData.registrationDateEnd}
         onChange={handleChange}
-        placeholder="Search for a registrationDateEnd"
+        placeholder="Registration ending (YYYY-MM-DD)"
       />
       <button type="submit">Search</button>
+      <button type="button" onClick={handleClear}>
+        Clear
+      </button>
     </form>
   );
 };
