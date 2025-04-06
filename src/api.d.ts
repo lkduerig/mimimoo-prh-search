@@ -1,3 +1,5 @@
+// TODO Evaluate all api.* files and verify if safe to delte.
+
 /**
  * Interface for a company object.
  */

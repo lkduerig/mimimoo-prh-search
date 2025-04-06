@@ -2,7 +2,6 @@ import { useState } from 'react';
 import SearchForm from './components/SearchForm.tsx';
 import ResultsTable from './components/ResultsTable.tsx';
 import { fetchCompanies, Company } from './api';
-import './App.css';
 
 const App: React.FC = () => {
   // State variables to manage the results, page info, and loading state.
