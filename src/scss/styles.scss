@@ -63,6 +63,7 @@ $spacer: 1rem;
     //   $table-bg: $gray-100,
     $table-color: $gray-700,
     $pagination-bg: $gray-100,
+    $spinner-animation-speed: 2s,
 );
 
 h1,
@@ -70,6 +71,11 @@ h1,
     color: $gray-300;
 }
 
+.spinner-border {
+    span {
+        white-space: nowrap;
+    }
+}
 .page-item {
     .page-link {
         color: $gray-700;

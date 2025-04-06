@@ -98,8 +98,7 @@ const App: React.FC = () => {
       )}
 
       {/* Loading spinner */}
-      {/* I did this on purpose. */}
-      {loading && <div className="spinner-border" role="status"><span className="rowx visually-hiddenx">Loading...</span></div>}
+      {loading && <div className="spinner-border" role="status"><span className="visually-hiddenx">I did this on purpose...</span></div>}
     </div>
   );
 };
