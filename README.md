@@ -1,3 +1,6 @@
+#  Known issues
+The app runs perfectly with `npm run dev`. There’s a known issue with the build process due to entry resolution that I ran out of time to fix, but it would likely be a quick config fix.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -1,0 +1,69 @@
+// src/scss/styles.scss
+
+// TODO BS is still using @import; can be removed safely in v6, only here to avoid breaking changes in v5.3
+// Ignore errors in terminal for now.
+// It would be nice to import only what is needed as below and have more control over the usage, but let's
+// just include the whole thing for now.
+
+// // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc).
+// @use "bootstrap/scss/functions" as *;
+// @use 'functions' as *;
+
+// // 2. Include any default variable overrides here
+// @use 'variables' as *;
+
+// // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+// @use "bootstrap/scss/variables" as *;
+// @use "bootstrap/scss/variables-dark" as *;
+
+// // 4. Include any default map overrides here
+// @use 'maps' as *;
+
+// // 5. Include remainder of required parts
+// @use "bootstrap/scss/maps" as *;
+// @use "bootstrap/scss/mixins" as *;
+// @use "bootstrap/scss/root" as *; // I haven't checked if this is needed.
+// @use 'mixins' as *;
+
+// // 6. Optionally include any other parts as needed
+// @use "../../node_modules/bootstrap/scss/utilities";
+// @use "../../node_modules/bootstrap/scss/reboot" as *;
+// @use "../../node_modules/bootstrap/scss/type" as *;
+// @use "../../node_modules/bootstrap/scss/images" as *;
+// @use "../../node_modules/bootstrap/scss/containers" as *;
+// @use "../../node_modules/bootstrap/scss/grid" as *;
+// @use "../../node_modules/bootstrap/scss/helpers" as *;
+
+// // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// @use "../../node_modules/bootstrap/scss/utilities/api" as *;
+
+// // 8. Add additional custom code here
+
+
+// TODO We're being lazy with variables, here, these are just copied from BS.
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+@use "bootstrap/scss/bootstrap" with (
+    $body-bg: hotpink,
+    $body-color: $gray-600,
+    $font-family-base: ('Comic Sans MS', cursive), // Who put this here, anyway?
+    $input-border-radius: 0,
+    $input-bg: $gray-100,
+    //   $table-bg: $gray-100,
+    $table-color: $gray-700,
+);
+
+h1,
+.table th {
+    color: $gray-300;
+}

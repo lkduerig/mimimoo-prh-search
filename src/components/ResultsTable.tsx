@@ -13,7 +13,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results }) => {
     }
     
     return (
-  <table>
+  <table className="table table-striped">
     <thead>
       <tr>
         <th>Name</th>
