@@ -99,7 +99,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
           />
         </div>
       </div>
-      <div className="row mb-3">
+      <div className="row mb-3 gap-3">
         <button type="submit" className="btn btn-primary col-sm-2">Search</button>
         <button type="button" className="btn btn-secondary col-sm-2" onClick={handleClear}>
           Clear

@@ -21,10 +21,10 @@ const App: React.FC = () => {
   // Handles the search functionality (fetches data based on the parameters).
   const handleSearch = async (params: Record<string, string>) => {
 
-  if (Object.keys(params).length === 0) {
-    setResults([]); // Explicitly reset results to an empty array when clearing.
-    return;
-  }
+    if (Object.keys(params).length === 0) {
+      setResults([]); // Explicitly reset results to an empty array when clearing.
+      return;
+    }
 
     setLoading(true); // Set loading state to true while fetching data.
     setParams(params); // Update search parameters.
@@ -53,41 +53,53 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Company Search</h1>
-      <SearchForm onSearch={handleSearch} /> {/* Search form to trigger the search. */}
-  
+      <div className="row row-header row--header">
+        <h1>Company Search</h1>
+      </div>
+      <SearchForm onSearch={handleSearch} />
+
       {/* Conditionally render ResultsTable and pagination only when there are results */}
       {results.length > 0 && (
         <>
-          <ResultsTable results={results} /> {/* Display the fetched results in a table. */}
-  
-          {/* Pagination controls */}
-          <div className="pagination">
-            <button
-              onClick={() => handlePageChange(params, currentPage - 1)} // Use dynamic params for location.
-              disabled={currentPage === 1} // Disable "Previous" button on the first page.
-            >
-              Previous
-            </button>
-            <span>
-              Page {currentPage} of {Math.ceil(totalResults / 100)} {/* Display current page and total pages. */}
-            </span>
-            <button
-              onClick={() => handlePageChange(params, currentPage + 1)} // Use dynamic params for location.
-              disabled={currentPage * 100 >= totalResults} // Disable "Next" button if on the last page.
-            >
-              Next
-            </button>
+          <ResultsTable results={results} />
+
+          <div className="row">
+            {/* Pagination controls */}
+            <ul className="col pagination">
+              <li className="page-item">
+                <button
+                  className="page-link"
+                  onClick={() => handlePageChange(params, currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </button>
+              </li>
+              <li className="page-item">
+                <span className="page-link">
+                  Page {currentPage} of {Math.ceil(totalResults / 100)}
+                </span>
+              </li>
+              <li className="page-item">
+                <button
+                  className="page-link"
+                  onClick={() => handlePageChange(params, currentPage + 1)}
+                  disabled={currentPage * 100 >= totalResults}
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+
+            {/* Display total number of results */}
+            <div className="col counter text-end">{totalResults} results</div>
           </div>
-  
-          {/* Display total number of results */}
-          <div className="counter">{totalResults} results</div>
         </>
       )}
-  
+
       {/* Loading spinner */}
       {/* I did this on purpose. */}
-      {loading && <div className="spinner-border" role="status"><span className="visually-hiddenx">Loading...</span></div>}
+      {loading && <div className="spinner-border" role="status"><span className="rowx visually-hiddenx">Loading...</span></div>}
     </div>
   );
 };

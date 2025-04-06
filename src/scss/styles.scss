@@ -53,17 +53,55 @@ $gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
 
-@use "bootstrap/scss/bootstrap" with (
-    $body-bg: hotpink,
+$spacer: 1rem;
+
+@use "bootstrap/scss/bootstrap" with ($body-bg: hotpink,
     $body-color: $gray-600,
     $font-family-base: ('Comic Sans MS', cursive), // Who put this here, anyway?
     $input-border-radius: 0,
     $input-bg: $gray-100,
     //   $table-bg: $gray-100,
     $table-color: $gray-700,
+    $pagination-bg: $gray-100,
 );
 
 h1,
 .table th {
     color: $gray-300;
+}
+
+.page-item {
+    .page-link {
+        color: $gray-700;
+        transition: transform 0.3s ease-in-out, color 0.3s ease;
+    }
+
+    &:hover {
+        .page-link {
+            color: hotpink;
+            transform: rotate(360deg) scale(2);
+        }
+    }
+}
+
+@keyframes wiggle {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(10px) rotate(10deg);
+    }
+
+    50% {
+        transform: translateX(-10px) rotate(-10deg);
+    }
+
+    75% {
+        transform: translateX(10px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
