@@ -49,8 +49,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
     <form onSubmit={handleSubmit}>
       {/* Location field */}
       <div className="row mb-3">
-        <label htmlFor="location" className="col-sm-2 col-form-label">Location</label>
-        <div className="col-sm-10">
+        <label htmlFor="location" className="col-sm-3 col-form-label">Location</label>
+        <div className="col-sm-9">
           <input
             type="text"
             name="location"
@@ -63,8 +63,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
       {/* Business ID field */}
       <div className="row mb-3">
-        <label htmlFor="businessId" className="col-sm-2 col-form-label">Business ID</label>
-        <div className="col-sm-10">
+        <label htmlFor="businessId" className="col-sm-3 col-form-label">Business ID</label>
+        <div className="col-sm-9">
           <input
             type="text"
             name="businessId"
@@ -77,8 +77,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
 
       {/* Date fields */}
       <div className="row mb-3">
-        <label htmlFor="registrationDateStart" className="col-sm-2 col-form-label">Registration Date Start</label>
-        <div className="col-sm-10">
+        <label htmlFor="registrationDateStart" className="col-sm-3 col-form-label">Registration Date Start</label>
+        <div className="col-sm-9">
           <input
             type="date"
             name="registrationDateStart"
@@ -90,8 +90,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
       </div>
 
       <div className="row mb-3">
-        <label htmlFor="registrationDateEnd" className="col-sm-2 col-form-label">Registration Date End</label>
-        <div className="col-sm-10">
+        <label htmlFor="registrationDateEnd" className="col-sm-3 col-form-label">Registration Date End</label>
+        <div className="col-sm-9">
           <input
             type="date"
             name="registrationDateEnd"
